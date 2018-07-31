@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ball</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="canvas.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+</head>
+<style>
+
+	#circle{
+		width: 38px;
+		height: 38px;
+		border-radius: 38px;
+		background-color: black;
+    
+    
+		
+	}
+
+
+	.img{
+		background:url("c.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:1250px 420px; 
+    background-size: 200px 150px;
+	}
+	
+    .bd{
+    background:url("c.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:2610px 800px; 
+    background-size: 150px 150px;
+  }
+  .gif{
+    margin: 370px 1280px;
+    position: absolute;
+    display: none;  
+  }
+.fa
+    { transform: scale(3.3,3); 
+      color: yellow;
+      margin:-30px 13px;
+      position: absolute;
+      display: none;
+
+
+    }
+	</style>
+<body class="img">
+
+
+<div class="all">
+ <div id="circle"><h1></h1></div>
+ <i class="fa fa-smile-o" aria-hidden="true"></i>
+</div> 
+
+<img class="gif" src="gif.gif">
+
+
+
+
+
+<script>
+
+
+
+var jball = $('#ball')
+var box1 = $('.all');
+ var h = $( "h1" );
+          var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+          if (pos.left < 100) {
+                 
+          }
+        
+   
+      
+addEventListener('keydown' , test);
+
+function test(w){
+	if(w.which == 39){                             // *Right
+	box1.css('margin-left',"1450px" ).css('transition', '1s')
+	var aa = setInterval(function(){ 
+          var h = $( "h1" );
+          var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+
+             if ((pos.left > 1300 && pos.top > 400) && (pos.left < 1328 && pos.top < 448)) {
+                clear()
+                   $('.img').removeClass()
+                  $('.gif').css('display', 'inline')
+                  box1.css('position', 'absolute')
+                  $('.fa').css('display', 'inline')
+                  setTimeout(function(){
+                    $('.gif').remove()
+                  },750)
+                                }
+      
+          }, 100);
+            function clear(){
+            clearInterval(aa);
+          }
+	
+          
+  }if( w.which == 37){
+	box1.css('margin-left',"0px" ).css('transition', '1s')
+	  
+	
+
+  } if(w.which == 38){
+	box1.css('margin-top',"0px" ).css('transition', '1s')
+	  // *Up
+
+} if (w.which == 40){
+	box1.css('margin-top',"650px" ).css('transition', '1s')
+	 	var aa = setInterval(function(){ 
+          var h = $( "h1" );
+          var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+              if ((pos.left > 1280 && pos.top > 400) && (pos.left < 1368 && pos.top < 488)) {
+                clear()
+                   $('.img').removeClass()
+                  $('.gif').css('display', 'inline')
+                  box1.css('position', 'absolute')
+                  $('.fa').css('display', 'inline')
+                  setTimeout(function(){
+                    $('.gif').remove()
+                  },750)
+              }
+      
+          }, 100);
+            function clear(){
+            clearInterval(aa);
+          }
+      
+	 // *Down
+
+                          //  left: 1328, top: 448.5667 Center
+ } 
+}
+
+
+</script>
+</body>
+</html>
