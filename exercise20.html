@@ -14,6 +14,7 @@
 		width: 38px;
 		height: 38px;
 		border-radius: 38px;
+
 		background-color: black;
     
     
@@ -47,7 +48,7 @@
       margin:-30px 13px;
       position: absolute;
       display: none;
-
+ 
 
     }
 	</style>
@@ -74,7 +75,12 @@ var box1 = $('.all');
  var h = $( "h1" );
           var pos = h.position();
           console.log( "left: " + pos.left + ", top: " + pos.top );
-        
+          if (pos.left < 100) {
+                   
+            
+                             
+          }
+          
         
    
       
@@ -88,11 +94,16 @@ function test(w){
           var pos = h.position();
           console.log( "left: " + pos.left + ", top: " + pos.top );
 
+
+
              if ((pos.left > 1300 && pos.top > 400) && (pos.left < 1328 && pos.top < 448)) {
                 clear()
                    $('.img').removeClass()
                   $('.gif').css('display', 'inline')
                   box1.css('position', 'absolute')
+                  $('#circle').css('box-shadow', '5px 5px 15px')
+                  $('body').css('background-color', '#d8e7ff' ) 
+
                   $('.fa').css('display', 'inline')
                   setTimeout(function(){
                     $('.gif').remove()
@@ -125,6 +136,10 @@ function test(w){
                    $('.img').removeClass()
                   $('.gif').css('display', 'inline')
                   box1.css('position', 'absolute')
+                  $('#circle').css('box-shadow', '5px 5px 15px')
+                  $('body').css('background-color', '#d8e7ff' ) 
+
+
                   $('.fa').css('display', 'inline')
                   setTimeout(function(){
                     $('.gif').remove()
