@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ball</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="canvas.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+</head>
+<style>
+
+	#circle{
+		width: 38px;
+		height: 38px;
+		border-radius: 38px;
+		background: linear-gradient(orange,blue,yellow)
+
+	}
+
+
+ .img{
+
+		background:url("c2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:;
+    background-size: 100% 100%;
+
+	}
+	
+ .img1{
+   background:url("c3.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:;
+    background-size: 100% 100%;
+  }
+   .img2{
+   background:url("c4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position:;
+    background-size: 100% 100%;
+  }
+  .gif{
+    margin: 370px 1280px;
+    position: absolute;
+    display: none;  
+  }
+.fa{
+     transform: scale(3.3,3); 
+      color: black;
+      margin:-30px 13px;
+      position: absolute;
+      display: none;
+ }
+.h1{
+  display:none;
+  position: absolute;
+  margin-top: 0;
+  color: white;
+  margin-left: 1350px;
+}
+
+    </style>
+<body class="img">
+
+
+<div class="all">
+ <div id="circle"><h1></h1></div>
+
+ <i class="fa fa-smile-o" aria-hidden="true"></i>
+</div> 
+<h1 class="h1"></h1>
+
+
+
+<img class="gif" src="gif.gif">
+<audio id="audio" src="bomb.mp3"></audio>
+<audio id="move" src="move.mp3"></audio>
+
+<script>
+var jball = $('#ball')
+var box1 = $('.all');
+ var h = $( "h1" );
+ var sec = 0;
+ var score = "You score:"
+var h1 = $('.h1');
+
+           var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+
+          function bomb(){
+            document.getElementById('audio').play()
+            
+          }
+          
+           function move(){
+            document.getElementById('move').play()
+            
+          }
+
+         
+
+
+          function count(){
+           sec +=1
+           h1.html("Score: " +sec)
+            if (sec == 500) {
+          $('.img').removeClass()
+          $('body').addClass('img2')
+          box1.remove()
+         }
+          
+
+          }
+var timer = setInterval(count, 8)
+
+          function clearCount(){
+           clearInterval(timer)
+         }
+
+
+
+
+ 
+ 
+          
+             
+addEventListener('keydown' , test);
+
+ function test(w){
+
+	if(w.which == 39){                             // *Right
+	box1.css('margin-left',"1450px" ).css('transition', '1s')
+  
+  move()
+	var aa = setInterval(function(){ 
+          var h = $( "h1" );
+          var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+
+             if ((pos.left > 1300 && pos.top > 400) && (pos.left < 1328 && pos.top < 448)) {
+              clearCount()
+                clear()
+                   $('.img').removeClass()
+                   $('body').addClass('img1')
+                  $('.gif').css('display', 'inline')
+                  bomb()
+                  box1.css('position', 'absolute')
+                  $('#circle').css('box-shadow', '5px 5px 15px')
+                   
+                    h1.css('display', 'inline')
+                  $('.fa').css('display', 'inline')
+                  
+                  
+                  setTimeout(function(){
+                    $('.gif').remove()
+                  },750)
+                                }
+      
+          }, 10);
+            function clear(){
+            clearInterval(aa);
+          }
+	
+          
+  }if( w.which == 37){
+	box1.css('margin-left',"0px" ).css('transition', '1s')
+  move()
+	  
+	
+
+  } if(w.which == 38){
+	box1.css('margin-top',"0px" ).css('transition', '1s')
+  move()
+	  // *Up
+
+} if (w.which == 40){
+	box1.css('margin-top',"650px" ).css('transition', '1s')
+  move()
+	 	var aa = setInterval(function(){ 
+          var h = $( "h1" );
+          var pos = h.position();
+          console.log( "left: " + pos.left + ", top: " + pos.top );
+              if ((pos.left > 1280 && pos.top > 400) && (pos.left < 1368 && pos.top < 488)) {
+                clearCount()
+                clear()
+                   $('.img').removeClass()
+                   $('body').addClass('img1')
+                  $('.gif').css('display', 'inline')
+                  bomb()
+                  box1.css('position', 'absolute')
+                  $('#circle').css('box-shadow', '5px 5px 15px')
+                  
+                  h1.css('display', 'inline') 
+                  $('.fa').css('display', 'inline')
+                  
+                  setTimeout(function(){
+                    $('.gif').remove()
+                  },750)
+              }
+      
+          }, 10);
+            function clear(){
+            clearInterval(aa);
+          }
+
+
+      
+	 // *Down
+
+                          //  left: 1328, top: 448.5667 Center
+ } 
+}
+
+
+</script>
+</body>
+</html>
